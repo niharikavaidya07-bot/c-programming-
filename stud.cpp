@@ -7,7 +7,7 @@ class student
     int rollno;
     float marks;
 
-    int input()
+    void input()
    {
      cout<<"enter name:";
     cin>>name;
@@ -19,7 +19,7 @@ class student
     cin>>marks;
    }
 
-   int display()
+   void display()
    {
     cout<<"Name:"<<name<<endl;
     cout<<"roll no.:"<<rollno<<endl;
@@ -33,4 +33,5 @@ int main()
 student s1;
 s1.input();
 s1.display();
+return 0;
 }
