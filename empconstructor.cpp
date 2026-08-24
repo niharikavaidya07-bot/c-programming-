@@ -19,6 +19,13 @@ public:
         name=n;
         salary=s;
     }
+
+    employee(employee &e)//copy constructor
+    {
+        id=e.id;
+        name=e.name;
+        salary=e.salary;
+    }
     void display()
     {
         cout<<"Employee ID:"<<id<<endl;
@@ -28,11 +35,12 @@ public:
 };
 int main()
 {
-    employee e1;
-    employee e2(14,"Niharika",70000.0);
+    employee e1;//default
+    employee e2(14,"Niharika",70000.0);//parameterized
+    employee e3(e2);//copy
     e1.display();
     e2.display();
-
+    e3.display();
     return 0;
 }
 
