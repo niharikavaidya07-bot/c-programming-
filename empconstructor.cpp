@@ -38,8 +38,11 @@ int main()
     employee e1;//default
     employee e2(14,"Niharika",70000.0);//parameterized
     employee e3(e2);//copy
+   cout<< "Employee 1:" << endl;
     e1.display();
+    cout<< "\nEmployee 2:" << endl;
     e2.display();
+    cout<< "\nEmployee 3:" << endl;
     e3.display();
     return 0;
 }
