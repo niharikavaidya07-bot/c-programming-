@@ -37,11 +37,13 @@ int main()
     product p1;//default
     product p2(101,"Laptop",75000.0);//parameterized
     product p3(p2);//copy
+
    cout<< "Product 1:" << endl;
     p1.display();
     cout<< "\nProduct 2:" << endl;
     p2.display();
     cout<< "\nProduct 3:" << endl;
     p3.display();
+    
     return 0;
 }
