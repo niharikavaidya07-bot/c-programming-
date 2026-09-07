@@ -1,53 +1,75 @@
-// default cnstructor,parameterized constructor,copy constructor
-#include<iostream>
-#include<string>
+#include <iostream>
 using namespace std;
-class rectangle
+
+class Box
 {
-    int length;
-    int breadth;
+private:
+    float length, width, height;
+
 public:
-    rectangle()//default constructor
+    // Default Constructor
+    Box()
     {
-        length=0;
-        breadth=0;
+        length = 1;
+        width = 1;
+        height = 1;
     }
-    rectangle(int l,int b)//parameterized constructor
+
+    // Parameterized Constructor
+    Box(float l, float w, float h)
     {
-        length=l;
-        breadth=b;
+        length = l;
+        width = w;
+        height = h;
     }
-    rectangle(rectangle &r)//copy constructor
+
+    // Copy Constructor
+    Box(const Box &b)
     {
-        length=r.length;
-        breadth=r.breadth;
+        length = b.length;
+        width = b.width;
+        height = b.height;
     }
-    void area()
+
+    // Calculate Volume
+    float volume()
     {
-        cout << "Area: " << length * breadth << endl;
+        return length * width * height;
     }
+
+    // Display Object Information
     void display()
     {
-        cout<<"Length:"<<length<<endl;
-        cout<<"Breadth:"<<breadth<<endl;
+        cout << "Length : " << length << endl;
+        cout << "Width : " << width << endl;
+        cout << "Height : " << height << endl;
+        cout << "Volume : " << volume() << endl;
+        cout << endl;
+    }
+
+    // Destructor
+    ~Box()
+    {
+        cout << "Destructor called. Box object destroyed." << endl;
     }
 };
+
 int main()
 {
-    rectangle r1;//default
-    rectangle r2(10,5);//parameterized
-    rectangle r3(r2);//copy
-    
-   cout<<"Default Rectangle:"<<endl;
-    r1.display();
-    r1.area();
+    // Object using Default Constructor
+    Box box1;
+    cout << "Box 1 (Default Constructor):" << endl;
+    box1.display();
 
-    cout<<"\nParameterized Rectangle:"<<endl;
-    r2.display();
-    r2.area();
+    // Object using Parameterized Constructor
+    Box box2(10, 5, 4);
+    cout << "Box 2 (Parameterized Constructor):" << endl;
+    box2.display();
 
-    cout<<"\nCopy Rectangle:"<<endl;
-    r3.display();
-    r3.area();
+    // Object using Copy Constructor
+    Box box3(box2);
+    cout << "Box 3 (Copy Constructor):" << endl;
+    box3.display();
+
     return 0;
 }

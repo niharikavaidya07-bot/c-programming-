@@ -1,51 +1,57 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
-class employee
+
+class Employee
 {
-    int id;
-    string name;
-    float salary;
+private:
+    int employeeID;
+    string employeeName;
+    float basicSalary;
+    float HRA;
+    float DA;
+
 public:
-    employee()//default constructor
+    // Constructor
+    Employee(int id, string name, float basic, float hra, float da)
     {
-        id=0;
-        name="unknown";
-        salary=0.0;
-    }
-    employee(int i,string n,float s)//paarameterized constructor
-    {
-        id=i;
-        name=n;
-        salary=s;
+        employeeID = id;
+        employeeName = name;
+        basicSalary = basic;
+        HRA = hra;
+        DA = da;
     }
 
-    employee(employee &e)//copy constructor
+    // Calculate Gross Salary
+    float calculateGrossSalary()
     {
-        id=e.id;
-        name=e.name;
-        salary=e.salary;
+        return basicSalary + HRA + DA;
     }
+
+    // Display Employee Details
     void display()
     {
-        cout<<"Employee ID:"<<id<<endl;
-        cout<<"Employee Name:"<<name<<endl;
-        cout<<"Employee Salary:"<<salary<<endl;
+        cout << "\nEmployee Details" << endl;
+        cout << "Employee ID : " << employeeID << endl;
+        cout << "Employee Name : " << employeeName << endl;
+        cout << "Basic Salary : " << basicSalary << endl;
+        cout << "HRA : " << HRA << endl;
+        cout << "DA : " << DA << endl;
+        cout << "Gross Salary : " << calculateGrossSalary() << endl;
+    }
+
+    // Destructor
+    ~Employee()
+    {
+        cout << "\nEmployee object destroyed." << endl;
     }
 };
+
 int main()
 {
-    employee e1;//default
-    employee e2(14,"Niharika",70000.0);//parameterized
-    employee e3(e2);//copy
-   cout<< "Employee 1:" << endl;
-    e1.display();
-    cout<< "\nEmployee 2:" << endl;
-    e2.display();
-    cout<< "\nEmployee 3:" << endl;
-    e3.display();
+    Employee emp(101, "Niharika", 30000, 5000, 3000);
+
+    emp.display();
+
     return 0;
 }
-
-/*constructor is the function which is defined 
-in public which has same name as class*/
